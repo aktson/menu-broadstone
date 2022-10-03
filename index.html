@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://kit.fontawesome.com/e9fca197f4.js" crossorigin="anonymous"></script>
+		<!-- Compiled and minified CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link rel="stylesheet" href="css/style.css" />
+		<title>Menu Slider</title>
+	</head>
+	<body>
+		<!-- site header -->
+		<header>
+			<!-- Dropdown Structure -->
+
+			<!-- Rooms Dropdown  -->
+			<ul id="rooms" class="dropdown-content"></ul>
+
+			<!-- Suites Dropdown  -->
+			<ul id="suites" class="dropdown-content"></ul>
+
+			<!-- Restaurant Dropdown  -->
+			<ul id="restaurants" class="dropdown-content"></ul>
+
+			<!-- Facilities Dropdown  -->
+			<ul id="facilities" class="dropdown-content"></ul>
+
+			<!-- Spaces Dropdown  -->
+			<ul id="spaces" class="dropdown-content"></ul>
+			<!-- main nav -->
+			<nav>
+				<div class="nav-wrapper container">
+					<a href="#" data-target="slide-out" class="sidenav-trigger white-text right"><i class="material-icons">widgets</i></a>
+					<div>
+						<a href="index.html" class="brand-logo" id="logo-container"></a>
+					</div>
+				</div>
+			</nav>
+
+			<ul id="slide-out" class="sidenav">
+				<li>
+					<div class="user-view">
+						<div class="background">
+							<img src="./images/broadstone.png" />
+						</div>
+						<span class="white-text name" id="title-container"></span>
+						<a href="#email"><span class="white-text email"></span></a>
+					</div>
+				</li>
+				<li>
+					<a href="#!">
+						<i class="material-icons">home</i>
+						Home
+					</a>
+				</li>
+				<li>
+					<a class="dropdown-trigger" href="#!" data-target="rooms">
+						<i class="material-icons">hotel</i>
+						Rooms
+						<i class="material-icons right">arrow_drop_down</i>
+					</a>
+				</li>
+				<li>
+					<a class="dropdown-trigger" href="#!" data-target="suites">
+						<i class="material-icons">airline_seat_individual_suite</i>
+						Suites
+						<i class="material-icons right">arrow_drop_down</i>
+					</a>
+				</li>
+				<li>
+					<a class="dropdown-trigger" href="#!" data-target="restaurants">
+						<i class="material-icons">restaurant</i>
+						Restaurants
+						<i class="material-icons right">arrow_drop_down</i>
+					</a>
+				</li>
+				<li>
+					<a class="dropdown-trigger" href="#!" data-target="facilities">
+						<i class="material-icons">collections</i>
+						Facilities
+						<i class="material-icons right">arrow_drop_down</i>
+					</a>
+				</li>
+				<li>
+					<a class="dropdown-trigger" href="#!" data-target="spaces">
+						<i class="material-icons">event_available</i>
+						Meetings & Event Spaces
+						<i class="material-icons right">arrow_drop_down</i>
+					</a>
+				</li>
+			</ul>
+		</header>
+		<!-- main content  -->
+		<main class="container">
+			<!-- video container -->
+			<div class="row" id="video-container">
+				<div class="loader-container">
+					<div class="loader">
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- message container -->
+			<div class="row card-container valign-wrapper z-depth-5">
+				<div class="col s12 m3">
+					<div class="card red lighten-2 darken-1">
+						<div class="card-content white-text" id="message-container"></div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!-- Site footer -->
+		<footer class="page-footer transparent">
+			<div class="container center-align">
+				<i class="material-icons">copyright</i>
+				2022 Designed & Developed by AnkSon
+			</div>
+		</footer>
+
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script>
+			M.AutoInit();
+		</script>
+		<script src="js/script.js" type="module"></script>
+	</body>
+</html>
