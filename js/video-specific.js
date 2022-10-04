@@ -1,5 +1,6 @@
 import renderMessage from "./render/renderMessage.js";
-import { fetchVideos } from "./script.js";
+import { fetchVideos } from "./index.js";
+import { BASE_URL } from "./settings.js";
 
 fetchVideos();
 
@@ -9,12 +10,16 @@ const id = params.get("id");
 
 
 (async function fetchSingleVideo() {
-    const response = await fetch(`http://localhost:1337/api/videos/${id}?populate=*`)
+
+    const url = BASE_URL + `waldorf-astorias/${id}?populate=*`
+    const response = await fetch(url)
 
 
     try {
         if (response.ok) {
             const result = await response.json();
+
+            console.log(result)
             const data = result.data.attributes
 
             renderVideo(data)
@@ -32,14 +37,14 @@ const id = params.get("id");
 
 function renderVideo(data) {
 
-    const { title, link } = data;
-    console.log(title)
+    const { videoTitle, link } = data;
+    console.log(data)
     const videoContainer = document.querySelector("#video-container");
 
     videoContainer.innerHTML = "";
 
     videoContainer.innerHTML = `<div class="container">
-                                        <h1 class="center-align white-text flow-text">${title}</h1>
+                                        <h1 class="center-align white-text flow-text">${videoTitle}</h1>
                                         <iframe
                                             id="video-player"
                                             class="col s12"
