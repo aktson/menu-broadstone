@@ -17,8 +17,6 @@ export async function fetchVideos() {
             const data = result.data.attributes;
             const videos = data.waldorf_astorias.data;
 
-            const pdf = data.pdf.data.attributes.url
-            renderPdf(pdf)
             renderLogo(data)
             renderDropDown(videos)
 
@@ -35,10 +33,38 @@ export async function fetchVideos() {
 
 
 
+(async function fetchPdf() {
+
+    const url = BASE_URL + "companies/1?populate=*";
+    const response = await fetch(url)
+
+
+    try {
+        if (response.ok) {
+            const result = await response.json();
+            const data = result.data.attributes;
+            const pdf = data.pdf.data.attributes.url
+            renderPdf(pdf)
+
+
+        } else {
+            renderMessage("Unknown error occured")
+        }
+
+    } catch (error) {
+
+        console.log(error)
+        renderMessage("ERROR: Failed to fetch")
+    }
+})();
+
 
 function renderPdf(pdf) {
-    const pdfContainer = document.querySelector(".pdf-container")
+    const pdfContainer = document.querySelector(".pdf-container");
 
-    pdfContainer.innerHTML = `<a href="${pdf}" download target="_blank"><i class="material-icons">get_app</i>Download PDF</a>`
+    pdfContainer.innerHTML = "";
+
+    pdfContainer.innerHTML = `<embed src="${pdf}" type="application/pdf" width="100%" height="600px"  />`
 }
 
+{/* <a href="${pdf}" download target="_blank"><i class="material-icons">get_app</i>Download PDF</a> */ }
