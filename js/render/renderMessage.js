@@ -10,3 +10,4 @@ export default function renderMessage(message) {
     messageContainer.innerHTML = `<p class="white-text center  ">${message}</p>`
 
 }
+

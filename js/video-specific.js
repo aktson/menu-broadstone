@@ -19,7 +19,6 @@ const id = params.get("id");
         if (response.ok) {
             const result = await response.json();
 
-            console.log(result)
             const data = result.data.attributes
 
             renderVideo(data)
@@ -38,7 +37,7 @@ const id = params.get("id");
 function renderVideo(data) {
 
     const { videoTitle, link } = data;
-    console.log(data)
+
     const videoContainer = document.querySelector("#video-container");
 
     videoContainer.innerHTML = "";

@@ -4,6 +4,7 @@ import renderLogo from "./render/renderLogo.js";
 import renderMessage from "./render/renderMessage.js";
 
 fetchVideos();
+fetchPdf();
 
 export async function fetchVideos() {
 
@@ -33,7 +34,7 @@ export async function fetchVideos() {
 
 
 
-(async function fetchPdf() {
+async function fetchPdf() {
 
     const url = BASE_URL + "companies/1?populate=*";
     const response = await fetch(url)
@@ -44,7 +45,12 @@ export async function fetchVideos() {
             const result = await response.json();
             const data = result.data.attributes;
             const pdf = data.pdf.data.attributes.url
-            renderPdf(pdf)
+
+            const pdfContainer = document.querySelector(".pdf-container");
+
+            pdfContainer.innerHTML = "";
+
+            pdfContainer.innerHTML = `<embed src="${pdf}" type="application/pdf" width="100%" height="600px"  />`
 
 
         } else {
@@ -54,17 +60,6 @@ export async function fetchVideos() {
     } catch (error) {
 
         console.log(error)
-        renderMessage("ERROR: Failed to fetch")
+        // renderMessage("ERROR: Failed to fetch")
     }
-})();
-
-
-function renderPdf(pdf) {
-    const pdfContainer = document.querySelector(".pdf-container");
-
-    pdfContainer.innerHTML = "";
-
-    pdfContainer.innerHTML = `<embed src="${pdf}" type="application/pdf" width="100%" height="600px"  />`
 }
-
-{/* <a href="${pdf}" download target="_blank"><i class="material-icons">get_app</i>Download PDF</a> */ }
