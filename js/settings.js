@@ -1,3 +1,3 @@
-export const BASE_URL = "https://herokuapp-broadstone.herokuapp.com/api/"
+export const BASE_URL = "https://holidaze.up.railway.app/api/"
 
 
