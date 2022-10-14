@@ -16,6 +16,7 @@ export async function fetchVideos() {
         if (response.ok) {
             const result = await response.json();
             const data = result.data.attributes;
+
             const videos = data.waldorf_astorias.data;
 
             renderLogo(data)
